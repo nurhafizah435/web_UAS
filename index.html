@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berqurban Bersama UNP Peduli</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+  <style>
+    .gradient-bg { background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); }
+    .glass-effect { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.9); }
+    .hover-scale { transition: transform 0.3s ease; }
+    .hover-scale:hover { transform: scale(1.05); }
+    .slide-in { animation: slideIn 0.6s ease-out; }
+    @keyframes slideIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-in { animation: fadeIn 0.8s ease-out; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .pulse-animation { animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+  </style>
+</head>
+<body class="font-sans bg-gradient-to-br from-green-50 to-blue-50 min-h-screen">
+
+  <!-- Navbar -->
+  <header class="glass-effect shadow-lg fixed top-0 w-full z-50 border-b border-green-200">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      <div class="flex items-center gap-3">
+        <img src="https://upload.wikimedia.org/wikipedia/id/2/23/Logo_UNP.png" alt="Logo UNP" class="h-12 w-12 rounded-full shadow-md">
+        <div>
+          <span class="font-bold text-xl text-green-700">UNP Peduli</span>
+          <p class="text-xs text-green-600">Program Qurban Bersama</p>
+        </div>
+      </div>
+      <nav class="hidden md:flex space-x-8">
+        <a href="#home" class="text-gray-700 hover:text-green-700 font-medium transition-colors duration-300 flex items-center gap-2">
+          <i class="fas fa-home"></i> Beranda
+        </a>
+        <a href="#register" class="text-gray-700 hover:text-green-700 font-medium transition-colors duration-300 flex items-center gap-2">
+          <i class="fas fa-user-plus"></i> Daftar
+        </a>
+        <a href="#laporan" class="text-gray-700 hover:text-green-700 font-medium transition-colors duration-300 flex items-center gap-2">
+          <i class="fas fa-chart-bar"></i> Laporan
+        </a>
+        <a href="#info" class="text-gray-700 hover:text-green-700 font-medium transition-colors duration-300 flex items-center gap-2">
+          <i class="fas fa-info-circle"></i> Info
+        </a>
+      </nav>
+      <button id="mobileMenuBtn" class="md:hidden text-green-700 text-xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-green-200">
+      <nav class="px-6 py-4 space-y-2">
+        <a href="#home" class="block py-2 text-gray-700 hover:text-green-700">Beranda</a>
+        <a href="#register" class="block py-2 text-gray-700 hover:text-green-700">Daftar</a>
+        <a href="#laporan" class="block py-2 text-gray-700 hover:text-green-700">Laporan</a>
+        <a href="#info" class="block py-2 text-gray-700 hover:text-green-700">Info</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative min-h-screen bg-cover bg-center flex items-center justify-center" style="background-image: url('https://cdn.pixabay.com/photo/2018/06/18/16/05/cow-3485889_1280.jpg');">
+    <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40"></div>
+    <div class="relative z-10 text-center text-white px-6 max-w-4xl fade-in">
+      <div class="mb-8">
+        <i class="fas fa-heart text-6xl text-green-400 mb-4 pulse-animation"></i>
+      </div>
+      <h1 class="text-5xl md:text-7xl font-bold text-green-300 mb-6 leading-tight">
+        Berqurban Bersama<br>
+        <span class="text-white">UNP Peduli</span>
+      </h1>
+      <p class="text-xl md:text-2xl mb-8 text-gray-200 leading-relaxed">
+        Mari bergabung dalam program qurban yang penuh makna. Bersama-sama kita wujudkan kepedulian untuk sesama dan berbagi kebahagiaan di hari yang penuh berkah ini.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#register" class="inline-block gradient-bg hover:from-green-600 hover:to-green-700 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover-scale flex items-center gap-2 justify-center">
+          <i class="fas fa-user-plus"></i> Daftar Sekarang
+        </a>
+        <a href="#info" class="inline-block bg-white/20 hover:bg-white/30 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover-scale flex items-center gap-2 justify-center backdrop-blur-sm">
+          <i class="fas fa-info-circle"></i> Pelajari Lebih Lanjut
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistics Section -->
+  <section class="py-20 gradient-bg">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center text-white">
+        <div class="slide-in">
+          <div class="bg-white/20 rounded-lg p-6 backdrop-blur-sm">
+            <i class="fas fa-users text-4xl mb-4"></i>
+            <h3 class="text-3xl font-bold" id="totalPeserta">0</h3>
+            <p class="text-lg">Total Peserta</p>
+          </div>
+        </div>
+        <div class="slide-in" style="animation-delay: 0.2s;">
+          <div class="bg-white/20 rounded-lg p-6 backdrop-blur-sm">
+            <i class="fas fa-coins text-4xl mb-4"></i>
+            <h3 class="text-3xl font-bold" id="totalDana">Rp 0</h3>
+            <p class="text-lg">Total Dana Terkumpul</p>
+          </div>
+        </div>
+        <div class="slide-in" style="animation-delay: 0.4s;">
+          <div class="bg-white/20 rounded-lg p-6 backdrop-blur-sm">
+            <i class="fas fa-calendar-alt text-4xl mb-4"></i>
+            <h3 class="text-3xl font-bold" id="totalHewan">0</h3>
+            <p class="text-lg">Total Hewan Qurban</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Register Section -->
+  <section id="register" class="py-20 max-w-6xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-green-700 mb-4">Form Pendaftaran Peserta Qurban</h2>
+      <p class="text-gray-600 text-lg">Bergabunglah dengan program qurban bersama kami</p>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-xl p-8 hover-scale">
+      <h3 class="text-2xl font-bold text-green-700 mb-6 flex items-center gap-2">
+        <i class="fas fa-user-plus"></i> Pendaftaran Peserta Qurban
+      </h3>
+      <form id="formPeserta" class="space-y-6">
+        <!-- Baris 1: NIP/NIK, Nama, Jabatan -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div>
+            <label class="block text-gray-700 font-medium mb-2">NIP/NIK *</label>
+            <input type="text" id="nip" placeholder="Masukkan NIP/NIK" class="w-full border-2 border-gray-200 rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none transition-colors" required>
+          </div>
+          <div>
+            <label class="block text-gray-700 font-medium mb-2">Nama Lengkap *</label>
+            <input type="text" id="nama" placeholder="Masukkan nama lengkap" class="w-full border-2 border-gray-200 rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none transition-colors" required>
+          </div>
+          <div>
+            <label class="block text-gray-700 font-medium mb-2">Jabatan *</label>
+            <select id="jabatan" class="w-full border-2 border-gray-200 rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none transition-colors" required>
+              <option value="">-- Pilih Jabatan --</option>
+              <option value="Dosen">Dosen</option>
+              <option value="Tendik">Tenaga Kependidikan</option>
+              <option value="Pimpinan">Pimpinan</option>
+              <option value="Staf">Staf</option>
+              <option value="Lainnya">Lainnya</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Baris 2: Fakultas, No. Telepon, Email -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div>
+            <label class="block text-gray-700 font-medium mb-2">Fakultas/Unit *</label>
+            <select id="fakultas" class="w-full border-2 border-gray-200 rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none transition-colors" required>
+              <option value="">-- Pilih Fakultas/Unit --</option>
+              <option value="Fakultas Ilmu Pendidikan">Fakultas Ilmu Pendidikan</option>
+              <option value="FMIPA">FMIPA</option>
+              <option value="FTK">FTK</option>
+              <option value="FBS">FBS</option>
+              <option value="FIS">FIS</option>
+              <option value="FE">FE</option>
+              <option value="FK">FK</option>
+              <option value="Rektorat">Rektorat</option>
+              <option value="Lainnya">Lainnya</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-gray-700 font-medium mb-2">No. Telepon *</label>
+            <input type="tel" id="nohp" placeholder="08123456789" class="w-full border-2 border-gray-200 rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none transition-colors" required>
+          </div>
+          <div>
+            <label class="block text-gray-700 font-medium mb-2">Email *</label>
+            <input type="email" id="email" placeholder="nama@unp.ac.id" class="w-full border-2 border-gray-200 rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none transition-colors" required>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-gray-700 font-medium mb-2">Jenis Hewan Qurban *</label>
+            <select id="jenisHewan" class="w-full border-2 border-gray-200 rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none transition-colors" required onchange="updatePembayaran()">
+              <option value="">-- Pilih Jenis Hewan --</option>
+              <option value="Sapi" data-harga="20000000">Sapi (Rp 20.000.000)</option>
+              <option value="Kambing" data-harga="3000000">Kambing (Rp 3.000.000)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-gray-700 font-medium mb-2">Jenis Partisipasi *</label>
+            <select id="jenisPartisipasi" class="w-full border-2 border-gray-200 rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none transition-colors" required onchange="updatePembayaran()">
+              <option value="">-- Pilih Partisipasi --</option>
+              <option value="Individu">Individu (1 orang)</option>
+              <option value="Patungan">Patungan (1/7 sapi)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Baris 4: Metode Pembayaran -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-gray-700 font-medium mb-2">Metode Pembayaran *</label>
+            <select id="metodePembayaran" class="w-full border-2 border-gray-200 rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none transition-colors" required>
+              <option value="">-- Pilih Metode --</option>
+              <option value="Potongan Gaji">Potongan Gaji</option>
+              <option value="Transfer Bank">Transfer Bank</option>
+              <option value="Tunai">Tunai</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-gray-700 font-medium mb-2">Jumlah Cicilan (Bulan)</label>
+            <select id="jumlahCicilan" class="w-full border-2 border-gray-200 rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none transition-colors">
+              <option value="1">1 Bulan (Lunas)</option>
+              <option value="3">3 Bulan</option>
+              <option value="6">6 Bulan</option>
+              <option value="12" selected>12 Bulan</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Catatan Tambahan -->
+        <div>
+          <label class="block text-gray-700 font-medium mb-2">Catatan Tambahan</label>
+          <textarea id="catatan" rows="4" placeholder="Catatan khusus atau permintaan tambahan..." class="w-full border-2 border-gray-200 rounded-lg px-4 py-3 focus:border-green-500 focus:outline-none transition-colors resize-none"></textarea>
+        </div>
+
+        <button type="submit" id="btnDaftar" class="w-full gradient-bg hover:from-green-600 hover:to-green-700 text-white font-semibold px-6 py-4 rounded-lg shadow-lg transition-all duration-300 flex items-center justify-center gap-2">
+          <i class="fas fa-plus"></i> Daftar Peserta Qurban
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Laporan Section -->
+  <section id="laporan" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-green-700 mb-4">Laporan Peserta Qurban</h2>
+        <p class="text-gray-600 text-lg">Daftar lengkap peserta program qurban</p>
+      </div>
+
+      <!-- Filter Section -->
+      <div class="bg-white rounded-2xl shadow-lg p-6 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div>
+            <label class="block text-gray-700 font-medium mb-2">Filter Fakultas</label>
+            <select id="filterFakultas" class="w-full border-2 border-gray-200 rounded-lg px-4 py-2 focus:border-green-500 focus:outline-none">
+              <option value="">Semua Fakultas</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-gray-700 font-medium mb-2">Filter Jenis Hewan</label>
+            <select id="filterJenisHewan" class="w-full border-2 border-gray-200 rounded-lg px-4 py-2 focus:border-green-500 focus:outline-none">
+              <option value="">Semua Jenis</option>
+              <option value="Sapi">Sapi</option>
+              <option value="Kambing">Kambing</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-gray-700 font-medium mb-2">Filter Status</label>
+            <select id="filterStatus" class="w-full border-2 border-gray-200 rounded-lg px-4 py-2 focus:border-green-500 focus:outline-none">
+              <option value="">Semua Status</option>
+              <option value="Aktif">Aktif</option>
+              <option value="Lunas">Lunas</option>
+            </select>
+          </div>
+          <div class="flex items-end">
+            <button id="exportBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+              <i class="fas fa-download"></i> Export Data
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Table Section -->
+      <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="min-w-full">
+            <thead class="gradient-bg text-white">
+              <tr>
+                <th class="px-6 py-4 text-left font-semibold">No</th>
+                <th class="px-6 py-4 text-left font-semibold">NIP/NIK</th>
+                <th class="px-6 py-4 text-left font-semibold">Nama</th>
+                <th class="px-6 py-4 text-left font-semibold">Fakultas</th>
+                <th class="px-6 py-4 text-left font-semibold">Jenis Hewan</th>
+                <th class="px-6 py-4 text-left font-semibold">Partisipasi</th>
+                <th class="px-6 py-4 text-left font-semibold">Total</th>
+                <th class="px-6 py-4 text-left font-semibold">Status</th>
+                <th class="px-6 py-4 text-left font-semibold">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="laporanBody" class="divide-y divide-gray-200"></tbody>
+          </table>
+        </div>
+        <div class="bg-gray-50 px-6 py-4 border-t">
+          <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex gap-6">
+              <h3 id="totalSemua" class="text-xl font-bold text-green-700">Total Dana: Rp 0</h3>
+              <h3 id="totalHewanSemua" class="text-xl font-bold text-blue-700">Total Hewan: 0</h3>
+            </div>
+            <div class="text-sm text-gray-600">
+              <span id="jumlahPeserta">0 peserta</span> • 
+              <span>Terakhir diupdate: <span id="lastUpdate">-</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detail Modal -->
+  <div id="detailModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-96 overflow-y-auto">
+      <div class="p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-2xl font-bold text-green-700">Detail Peserta</h3>
+          <button id="closeModal" class="text-gray-500 hover:text-gray-700 text-2xl">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div id="modalContent"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Information Section -->
+  <section id="info" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-green-700 mb-4">Informasi Program Qurban</h2>
+        <p class="text-gray-600 text-lg">Ketentuan dan syarat program qurban UNP Peduli</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 hover-scale">
+          <div class="text-green-600 text-4xl mb-4">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3 class="text-xl font-bold text-green-700 mb-3">Persyaratan Peserta</h3>
+          <ul class="text-gray-700 space-y-2">
+            <li>• Dosen dan Karyawan UNP aktif</li>
+            <li>• Memiliki NIP/NIK valid</li>
+            <li>• Bersedia mengikuti program sesuai pilihan</li>
+          </ul>
+        </div>
+
+        <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 hover-scale">
+          <div class="text-blue-600 text-4xl mb-4">
+            <i class="fas fa-money-bill-wave"></i>
+          </div>
+          <h3 class="text-xl font-bold text-blue-700 mb-3">Pilihan Pembayaran</h3>
+          <ul class="text-gray-700 space-y-2">
+            <li>• Potongan gaji bulanan</li>
+            <li>• Transfer bank</li>
+            <li>• Pembayaran tunai</li>
+          </ul>
+        </div>
+
+        <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-6 hover-scale">
+          <div class="text-purple-600 text-4xl mb-4">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3 class="text-xl font-bold text-purple-700 mb-3">Jenis Hewan</h3>
+          <ul class="text-gray-700 space-y-2">
+            <li>• Sapi: Rp 20.000.000</li>
+            <li>• Kambing: Rp 3.000.000</li>
+            <li>• Tersedia opsi patungan</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="mt-16 bg-gradient-to-r from-green-600 to-green-700 rounded-2xl p-8 text-white text-center">
+        <h3 class="text-2xl font-bold mb-4">Butuh Bantuan?</h3>
+        <p class="mb-6">Hubungi panitia untuk informasi lebih lanjut</p>
+        <div class="flex flex-col md:flex-row justify-center gap-4">
+          <div class="flex items-center justify-center gap-2">
+            <i class="fas fa-phone"></i>
+            <span>0751-7057102</span>
+          </div>
+          <div class="flex items-center justify-center gap-2">
+            <i class="fas fa-envelope"></i>
+            <span>info@unp.ac.id</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <div class="flex items-center justify-center gap-3 mb-4">
+        <img src="https://upload.wikimedia.org/wikipedia/id/2/23/Logo_UNP.png" alt="Logo UNP" class="h-10 w-10">
+        <span class="font-bold text-xl">UNP Peduli</span>
+      </div>
+      <p class="text-gray-400 mb-4">Program Qurban Bersama Universitas Negeri Padang</p>
+      <div class="text-sm text-gray-500">
+        <p>&copy; 2024 UNP Peduli. Dibuat dengan ❤️ untuk kebaikan bersama.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="fixed top-20 right-4 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg hidden z-50 transform transition-all duration-300">
+    <div class="flex items-center gap-2">
+      <i class="fas fa-check-circle"></i>
+      <span id="toastMessage">Berhasil!</span>
+    </div>
+  </div>
+
+ <script>
+let dataPeserta = JSON.parse(localStorage.getItem("dataPeserta")) || [];
+let nextId = dataPeserta.length > 0 ? Math.max(...dataPeserta.map(p => p.id)) + 1 : 1;
+
+const hargaHewan = {
+  'Sapi': 20000000,
+  'Kambing': 3000000
+};
+
+const formPeserta = document.getElementById('formPeserta');
+const laporanBody = document.getElementById('laporanBody');
+const totalSemua = document.getElementById('totalSemua');
+const totalHewanSemua = document.getElementById('totalHewanSemua');
+const jumlahPeserta = document.getElementById('jumlahPeserta');
+const lastUpdate = document.getElementById('lastUpdate');
+const toast = document.getElementById('toast');
+const toastMessage = document.getElementById('toastMessage');
+
+// Modal close handler
+const closeModal = document.getElementById('closeModal');
+closeModal.addEventListener('click', () => {
+  document.getElementById('detailModal').classList.add('hidden');
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  updateStatistics();
+  renderLaporan();
+  setupEventListeners();
+});
+
+function setupEventListeners() {
+  formPeserta.addEventListener('submit', handleFormSubmit);
+  document.getElementById('filterFakultas').addEventListener('change', renderLaporan);
+  document.getElementById('filterJenisHewan').addEventListener('change', renderLaporan);
+  document.getElementById('filterStatus').addEventListener('change', renderLaporan);
+  document.getElementById('exportBtn').addEventListener('click', exportData);
+}
+
+function handleFormSubmit(e) {
+  e.preventDefault();
+
+  const peserta = {
+    id: nextId++,
+    nip: document.getElementById('nip').value,
+    nama: document.getElementById('nama').value,
+    jabatan: document.getElementById('jabatan').value,
+    fakultas: document.getElementById('fakultas').value,
+    nohp: document.getElementById('nohp').value,
+    email: document.getElementById('email').value,
+    jenisHewan: document.getElementById('jenisHewan').value,
+    jenisPartisipasi: document.getElementById('jenisPartisipasi').value,
+    metodePembayaran: document.getElementById('metodePembayaran').value,
+    jumlahCicilan: document.getElementById('jumlahCicilan').value,
+    catatan: document.getElementById('catatan').value,
+    total: hitungTotal(),
+    status: "Aktif"
+  };
+
+  dataPeserta.push(peserta);
+  localStorage.setItem("dataPeserta", JSON.stringify(dataPeserta));
+
+  renderLaporan();
+  updateStatistics();
+  showToast("Pendaftaran berhasil!");
+  formPeserta.reset();
+}
+
+function hitungTotal() {
+  const jenisHewan = document.getElementById('jenisHewan').value;
+  const jenisPartisipasi = document.getElementById('jenisPartisipasi').value;
+  let harga = hargaHewan[jenisHewan] || 0;
+  if (jenisPartisipasi === 'Patungan') harga = harga / 7;
+  return harga;
+}
+
+function renderLaporan() {
+  laporanBody.innerHTML = "";
+
+  const fakultasFilter = document.getElementById('filterFakultas').value;
+  const hewanFilter = document.getElementById('filterJenisHewan').value;
+  const statusFilter = document.getElementById('filterStatus').value;
+
+  let filteredData = dataPeserta.filter(p => {
+    return (!fakultasFilter || p.fakultas === fakultasFilter)
+      && (!hewanFilter || p.jenisHewan === hewanFilter)
+      && (!statusFilter || p.status === statusFilter);
+  });
+
+  filteredData.forEach((p, i) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td class="px-6 py-4">${i + 1}</td>
+      <td class="px-6 py-4">${p.nip}</td>
+      <td class="px-6 py-4">${p.nama}</td>
+      <td class="px-6 py-4">${p.fakultas}</td>
+      <td class="px-6 py-4">${p.jenisHewan}</td>
+      <td class="px-6 py-4">${p.jenisPartisipasi}</td>
+      <td class="px-6 py-4">Rp ${p.total.toLocaleString('id-ID')}</td>
+      <td class="px-6 py-4">${p.status}</td>
+      <td class="px-6 py-4 text-blue-600 space-x-2">
+        <button onclick="lihatDetail(${p.id})" class="text-blue-600 hover:underline">Lihat</button>
+        <button onclick="hapusPeserta(${p.id})" class="text-red-600 hover:underline">Hapus</button>
+      </td>
+    `;
+    laporanBody.appendChild(tr);
+  });
+
+  jumlahPeserta.innerText = `${filteredData.length} peserta`;
+  lastUpdate.innerText = new Date().toLocaleString();
+}
+
+function updateStatistics() {
+  const totalDana = dataPeserta.reduce((acc, cur) => acc + cur.total, 0);
+  const totalHewan = dataPeserta.reduce((acc, cur) => {
+    return acc + (cur.jenisPartisipasi === 'Patungan' ? 1 / 7 : 1);
+  }, 0);
+
+  totalSemua.innerText = `Total Dana: Rp ${totalDana.toLocaleString('id-ID')}`;
+  totalHewanSemua.innerText = `Total Hewan: ${totalHewan.toFixed(2)}`;
+}
+
+function showToast(msg) {
+  toastMessage.innerText = msg;
+  toast.classList.remove("hidden");
+  setTimeout(() => toast.classList.add("hidden"), 3000);
+}
+
+function exportData() {
+  const csvRows = [
+    ["No", "NIP", "Nama", "Fakultas", "Jenis Hewan", "Partisipasi", "Total", "Status"]
+  ];
+
+  dataPeserta.forEach((p, i) => {
+    csvRows.push([
+      i + 1,
+      p.nip,
+      p.nama,
+      p.fakultas,
+      p.jenisHewan,
+      p.jenisPartisipasi,
+      p.total,
+      p.status
+    ]);
+  });
+
+  const csvContent = csvRows.map(e => e.join(",")).join("\n");
+  const blob = new Blob([csvContent], { type: "text/csv" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "data_peserta_qurban.csv";
+  a.click();
+}
+
+function hapusPeserta(id) {
+  if (confirm("Apakah Anda yakin ingin menghapus data peserta ini?")) {
+    dataPeserta = dataPeserta.filter(p => p.id !== id);
+    localStorage.setItem("dataPeserta", JSON.stringify(dataPeserta));
+    renderLaporan();
+    updateStatistics();
+    showToast("Peserta berhasil dihapus.");
+  }
+}
+
+function lihatDetail(id) {
+  const peserta = dataPeserta.find(p => p.id === id);
+  if (!peserta) return;
+
+  const modal = document.getElementById('detailModal');
+  const content = document.getElementById('modalContent');
+  content.innerHTML = `
+    <p><strong>NIP/NIK:</strong> ${peserta.nip}</p>
+    <p><strong>Nama:</strong> ${peserta.nama}</p>
+    <p><strong>Fakultas:</strong> ${peserta.fakultas}</p>
+    <p><strong>Jabatan:</strong> ${peserta.jabatan}</p>
+    <p><strong>Email:</strong> ${peserta.email}</p>
+    <p><strong>No HP:</strong> ${peserta.nohp}</p>
+    <p><strong>Jenis Hewan:</strong> ${peserta.jenisHewan}</p>
+    <p><strong>Partisipasi:</strong> ${peserta.jenisPartisipasi}</p>
+    <p><strong>Total:</strong> Rp ${peserta.total.toLocaleString('id-ID')}</p>
+    <p><strong>Status:</strong> ${peserta.status}</p>
+    <p><strong>Catatan:</strong> ${peserta.catatan}</p>
+  `;
+  modal.classList.remove("hidden");
+}
+</script>
